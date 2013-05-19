@@ -1,0 +1,9 @@
+CREATE TABLE "responses" 
+(
+	"id" INTEGER PRIMARY KEY  AUTOINCREMENT  NOT NULL  UNIQUE , 
+	"code" VARCHAR, "number" INTEGER, 
+	"response" VARCHAR, 
+	"createdAt" DATETIME DEFAULT CURRENT_DATE, 
+	"updatedAt" DATETIME DEFAULT CURRENT_DATE, 
+	"verified" BOOL
+);
