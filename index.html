@@ -8,21 +8,44 @@
 		<h1>Le surtaxeur</h1>
 		<h2>Toi aussi essaye les num&eacute;ros &agrave; la t&eacute;l&eacute; sans perdre UN SEUL CEN-TIME !</h2>
 		
-		<form>
-			<input type="text" placeholder="Entre ton code..." />
-			<input type="submit" value="Envoyer" />
-		</form>
+		<div id="phone">
+			<div id="screen">
+				<!-- here's some decoration like status bar with battery etc... -->
+				
+				<form action="" id="request_form">
+					<input type="text" id="code" placeholder="Entre ton code..." /><br/>
+					<input type="text" id="number" placeholder="Entre ton num&eacute;ro..." />
+					
+					<input type="submit" value="Envoyer" />
+				</form>
+				
+				<!-- displayed when the response is coming (like winter) -->
+				<form action="" id="response_form" style="display: none">
+					<p id="response"></p>
+					<!-- here some share buttons -->
+					<input type="submit" value="Nouveau message" />
+				</form>
+			</div>
+			
+			<!-- Here is the buttons to simulate the phone, just for fun, no obligations. -->
+			<!-- TO DO
+			<button>1</button>
+			<button>2 abc</button>
+			<button>3 def</button>
+			<br/>
+			<button>4 ghi</button>
+			<button>5 jkl</button>
+			<button>6 mno</button>
+			<br/>
+			<button>7 pqrs</button>
+			<button>8 tuv</button>
+			<button>9 wxyz</button>
+			<br/>
+			<button>* +</button>
+			<button>0</button>
+			<button>#</button>-->
+		</div>
 		
-		<button>0</button>
-		<button>1</button>
-		<button>3</button>
-		<br/>
-		<button>4</button>
-		<button>5</button>
-		<button>6</button>
-		<br/>
-		<button>7</button>
-		<button>8</button>
-		<button>9</button>
+		<script src="main.js"></script>
 	</body>
 </html>
