@@ -16,7 +16,8 @@ form.onsubmit = function() {
 	var xhr = new XMLHttpRequest();
 	
 	// We request the API to get a response
-	xhr.open('GET', 'api/index.php?method=getsms&code=' + code + '&number=' + number);
+	var url = 'api/index.php?method=getsms&code=' + code + '&number=' + number;
+	xhr.open('GET', url);
 	xhr.onreadystatechange = function() {
 		if(xhr.readyState == 4 && xhr.status == 200) {
 			var data = JSON.parse(xhr.responseText);
@@ -42,12 +43,13 @@ function setResponse(data) {
 	
 	responseForm.style.display = '';
 	
-	if(!data) {
-		// some error messages
+	var response = document.getElementById('response');
+	
+	if(data.err) {
+		response.innerHTML = 'Erreur : ' + data.err;
 		return;
 	}
 	
-	var response = document.getElementById('response');
 	var date = new Date();
 	var formattedDate = date.getHours().padLeft() + ':' + date.getMinutes().padLeft() + ':' + date.getSeconds().padLeft();
 	
