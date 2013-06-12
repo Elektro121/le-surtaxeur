@@ -43,6 +43,7 @@ function setResponse(data) {
 	
 	responseForm.style.display = '';
 	
+	var metadata = document.getElementById('metadata');
 	var response = document.getElementById('response');
 	
 	if(data.err) {
@@ -53,7 +54,8 @@ function setResponse(data) {
 	var date = new Date();
 	var formattedDate = date.getHours().padLeft() + ':' + date.getMinutes().padLeft() + ':' + date.getSeconds().padLeft();
 	
-	response.innerHTML = data.number + ' - ' + formattedDate + ' : <br/>' + data.response;
+	metadata.innerHTML = data.number + ' - ' + formattedDate + ' :';
+	response.innerHTML = data.response;
 }
 
 function reset() {

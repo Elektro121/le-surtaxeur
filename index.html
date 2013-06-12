@@ -3,6 +3,7 @@
 	<head>
 		<title>Le surtaxeur - Toi aussi essaye les num&eacute;ros &agrave; la t&eacute;l&eacute; sans perdre UN SEUL CEN-TIME !</title>
 		<meta charset="utf-8"/>
+		<link rel="stylesheet" type="text/css" media="all" href="main.css" />
 	</head>
 	<body>
 		<h1>Le surtaxeur</h1>
@@ -13,17 +14,26 @@
 				<!-- here's some decoration like status bar with battery etc... -->
 				
 				<form action="" id="request_form">
-					<input type="text" id="code" placeholder="Entre ton code..." /><br/>
-					<input type="text" id="number" placeholder="Entre ton num&eacute;ro..." />
-					
-					<input type="submit" value="Envoyer" />
+					<p class="phone_category">Write a new message</p>
+					<textarea id="code" class="screen_text" placeholder="Code"></textarea>
+					<div class="phone_menu">
+						<input type="text" id="number" placeholder="1337" />
+						
+						<input type="submit" value="Envoyer" />
+					</div>
 				</form>
 				
 				<!-- displayed when the response is coming (like winter) -->
 				<form action="" id="response_form" style="display: none">
-					<p id="response"></p>
-					<!-- here some share buttons -->
-					<input type="submit" value="Nouveau message" />
+					<p class="phone_category">Inbox</p>
+					<p class="screen_text"> 
+						<span id="metadata"></span><br/>
+						<span id="response"></span>
+					</p>
+					<div class="phone_menu">
+						<input type="submit" value="Nouveau message" />
+						<input type="submit" value="Partager" />
+					</div>
 				</form>
 			</div>
 			
@@ -43,7 +53,7 @@
 			<br/>
 			<button>* +</button>
 			<button>0</button>
-			<button>#</button>-->
+			<button>#</button><!---->
 		</div>
 		
 		<script src="main.js"></script>

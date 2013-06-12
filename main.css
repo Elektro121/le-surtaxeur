@@ -1,0 +1,74 @@
+body {
+	background: #eee;
+}
+
+/* ------------ PHONE ------------ */
+
+#phone {
+	background: black;
+	margin: auto;
+	width: 20%; /* relative to a picture */
+	padding: 5px;
+	
+}
+
+#screen {
+	background: #aaa;
+}
+
+#screen p {
+	margin: 0;
+	padding: 0;
+}
+
+#screen input, #screen textarea {
+	background: #aaa;
+}
+
+.phone_menu {
+	border-top: 1px solid #555;
+	text-align: center;
+}
+
+.phone_category {
+	border-bottom: 1px solid #555;
+	text-align: center;
+}
+
+.phone_menu input {
+	width: 49%;
+	border: none;
+	margin: 0;
+	padding: 0;
+}
+
+.screen_text {
+	height: 150px;
+	width: 100%;
+	overflow: auto;
+	margin: 0;
+	padding: 0;
+}
+
+#code, #response {
+	text-transform: uppercase;
+	font-size: 2em;
+	font-family: "courier new";
+	margin: 0;
+	padding: 0;
+	border: none;
+}
+	
+	/* -------- REQUEST -------- */
+	
+	#request_form {
+		
+	}
+	
+	/* -------- RESPONSE -------- */
+	
+	#response_form {
+		
+	}
+
+/* ------------ OTHER ------------ */
