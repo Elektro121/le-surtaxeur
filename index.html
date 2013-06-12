@@ -7,54 +7,57 @@
 	</head>
 	<body>
 		<h1>Le surtaxeur</h1>
-		<h2>Toi aussi essaye les num&eacute;ros &agrave; la t&eacute;l&eacute; sans perdre UN SEUL CEN-TIME !</h2>
 		
-		<div id="phone">
-			<div id="screen">
-				<!-- here's some decoration like status bar with battery etc... -->
+		<div id="phone_place">
+			<div class="phone"><!--id="big_phone" >-->
+				<div id="screen">
+					<!-- here's some decoration like status bar with battery etc... -->
+					
+					<form action="" id="request_form">
+						<p class="phone_category">Nouveau message</p>
+						<textarea id="code" class="screen_text" placeholder="Code"></textarea>
+						<div class="phone_menu">
+							<input type="text" id="number" placeholder="1337" />
+							
+							<input type="submit" value="Envoyer" />
+						</div>
+					</form>
+					
+					<!-- displayed when the response is coming (like winter) -->
+					<form action="" id="response_form" style="display: none">
+						<p class="phone_category">Bo&icirc;te de r&eacute;ception</p>
+						<p class="screen_text"> 
+							<span id="metadata"></span><br/>
+							<span id="response"></span>
+						</p>
+						<div class="phone_menu">
+							<input type="submit" value="Nouveau" />
+							<input type="submit" value="Partager" />
+						</div>
+					</form>
+				</div>
 				
-				<form action="" id="request_form">
-					<p class="phone_category">Write a new message</p>
-					<textarea id="code" class="screen_text" placeholder="Code"></textarea>
-					<div class="phone_menu">
-						<input type="text" id="number" placeholder="1337" />
-						
-						<input type="submit" value="Envoyer" />
-					</div>
-				</form>
-				
-				<!-- displayed when the response is coming (like winter) -->
-				<form action="" id="response_form" style="display: none">
-					<p class="phone_category">Inbox</p>
-					<p class="screen_text"> 
-						<span id="metadata"></span><br/>
-						<span id="response"></span>
-					</p>
-					<div class="phone_menu">
-						<input type="submit" value="Nouveau message" />
-						<input type="submit" value="Partager" />
-					</div>
-				</form>
+				<!-- Here is the buttons to simulate the phone, just for fun, no obligations. -->
+				<!-- TO DO
+				<button>1</button>
+				<button>2 abc</button>
+				<button>3 def</button>
+				<br/>
+				<button>4 ghi</button>
+				<button>5 jkl</button>
+				<button>6 mno</button>
+				<br/>
+				<button>7 pqrs</button>
+				<button>8 tuv</button>
+				<button>9 wxyz</button>
+				<br/>
+				<button>* +</button>
+				<button>0</button>
+				<button>#</button><!---->
 			</div>
-			
-			<!-- Here is the buttons to simulate the phone, just for fun, no obligations. -->
-			<!-- TO DO
-			<button>1</button>
-			<button>2 abc</button>
-			<button>3 def</button>
-			<br/>
-			<button>4 ghi</button>
-			<button>5 jkl</button>
-			<button>6 mno</button>
-			<br/>
-			<button>7 pqrs</button>
-			<button>8 tuv</button>
-			<button>9 wxyz</button>
-			<br/>
-			<button>* +</button>
-			<button>0</button>
-			<button>#</button><!---->
 		</div>
+		
+		<h2>Toi aussi essaye les num&eacute;ros &agrave; la t&eacute;l&eacute; sans perdre UN SEUL CEN-TIME !</h2>
 		
 		<script src="main.js"></script>
 	</body>
