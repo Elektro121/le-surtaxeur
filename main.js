@@ -1,4 +1,4 @@
-var form = document.getElementById('request_form');
+var requestForm = document.getElementById('request_form');
 var responseForm = document.getElementById('response_form');
 
 window.onload = function() {
@@ -7,11 +7,18 @@ window.onload = function() {
 	form.action = "#";
 }
 
-form.onsubmit = function() {
+requestForm.onsubmit = function() {
 	
 	// We get the elements from the form
-	var code = document.getElementById('code').value;
+	var code = document.getElementById('code').value.toUpperCase();
 	var number = parseInt(document.getElementById('number').value);
+	
+	// We check there is no problem with the code and the number
+	if(!/\d+/.test(number) || code == null)
+	{
+		code = 'ERROR';
+		number = 10101;
+	}
 	
 	var xhr = new XMLHttpRequest();
 	
@@ -26,6 +33,9 @@ form.onsubmit = function() {
 		else if(xhr.readyState == 4 && xhr.status != 200) {
 			setResponse(false);
 		}
+		else {
+			setResponse(false, true);
+		}
 	}
 	
 	xhr.send(null);
@@ -38,29 +48,38 @@ Number.prototype.padLeft = function(base,chr){
     return len > 0? new Array(len).join(chr || '0')+this : this;
 }
 
-function setResponse(data) {
-	form.style.display = 'none';
-	
-	responseForm.style.display = '';
-	
-	var metadata = document.getElementById('metadata');
-	var response = document.getElementById('response');
-	
-	if(data.err) {
-		response.innerHTML = 'Erreur : ' + data.err;
-		return;
+function setResponse(data, waiting = false) {
+	if(data && !waiting) {
+		requestForm.style.display = 'none';
+		
+		responseForm.style.display = '';
+		
+		var metadata = document.getElementById('metadata');
+		var response = document.getElementById('response');
+		
+		var date = new Date();
+		var formattedDate = date.getHours().padLeft() + ':' + date.getMinutes().padLeft() + ':' + date.getSeconds().padLeft();
+		
+		if(data.err) {
+			metadata.innerHTML = 'ERROR - ' + formattedDate + ' :';
+			response.innerHTML = data.err;
+			return;
+		}
+		
+		metadata.innerHTML = data.number + ' - ' + formattedDate + ' :';
+		response.innerHTML = data.response;
 	}
-	
-	var date = new Date();
-	var formattedDate = date.getHours().padLeft() + ':' + date.getMinutes().padLeft() + ':' + date.getSeconds().padLeft();
-	
-	metadata.innerHTML = data.number + ' - ' + formattedDate + ' :';
-	response.innerHTML = data.response;
+	else if(waiting) {
+		// TO DO : animation
+	}
+	else {
+		setResponse({'err' : 'Le serveur de SMS n\'est pas joignable, d&eacute;sol&eacute; !'});
+	}
 }
 
 function reset() {
 	responseForm.style.display = 'none';
-	form.reset();
-	form.style.display = '';
+	requestForm.reset();
+	requestForm.style.display = '';
 }
 responseForm.onsubmit = reset;
